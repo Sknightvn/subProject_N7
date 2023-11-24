@@ -23,14 +23,16 @@ const Screen02 = ({ route }) => {
     //     <Image source={{ uri: item.image }}></Image>
     //   </View>
     <View style={style.container}>
-      <View>
+      <View style={{height: 200}}>
+        <Text style= {{position: "absolute",  display: 'flex', width: '263px', height: "27px", flex: 1, fontSize: "32px"}}>_Keep for All</Text>
         <Image
           source={require("../assets/Nuxros.png")}
-          style={{ height: 300, resizeMode: "contain", bottom: 80 }}
+          style={{ width: '100%',height: '100%', objectFit: 'cover', position: 'relative'}
+        }
         ></Image>
       </View>
 
-      <View style={{ alignItems: "center", bottom: 150 }}>
+      <View style={{ alignItems: "center", }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="450"
@@ -45,23 +47,19 @@ const Screen02 = ({ route }) => {
           />
         </svg>
       </View>
-      <View>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10}}>
         <Pressable
-          style={{ alignItems: "center" }}
           // onPress={() => {
           //   navigation.navigate("Screen01");
           // }}
         >
           <Text
             style={{
-              right: 165,
               textAlign: "center",
-              color: "white",
-              backgroundColor: "#F5D0FF",
+              color: "#7089FF",
+              backgroundColor:'lightpink',
               borderRadius: 5,
-              width: 120,
-              height: 35,
-              bottom: 150,
+              width:100,
               fontSize: 25,
             }}
           >
@@ -69,20 +67,15 @@ const Screen02 = ({ route }) => {
           </Text>
         </Pressable>
         <Pressable
-          style={{ alignItems: "center" }}
           // onPress={() => {
           //   navigation.navigate("Screen01");
           // }}
         >
           <Text
             style={{
-              left: 165,
               textAlign: "center",
               color: "#7089FF",
               borderRadius: 5,
-              width: 120,
-              height: 35,
-              bottom: 185,
               fontSize: 25,
             }}
           >
@@ -90,7 +83,6 @@ const Screen02 = ({ route }) => {
           </Text>
         </Pressable>
         <Pressable
-          style={{ alignItems: "center" }}
           // onPress={() => {
           //   navigation.navigate("Screen01");
           // }}
@@ -100,9 +92,6 @@ const Screen02 = ({ route }) => {
               textAlign: "center",
               color: "#7089FF",
               borderRadius: 5,
-              width: 120,
-              height: 35,
-              bottom: 220,
               fontSize: 25,
             }}
           >
@@ -110,19 +99,22 @@ const Screen02 = ({ route }) => {
           </Text>
         </Pressable>
       </View>
-      <ScrollView style={{ flexDirection: "column", left: 15, bottom: 200 }}>
+      <ScrollView style={{ flexDirection: "column", display:'flex', gap: 10 }}>
         {data.map((item) => {
           return (
-            <View style={{ resizeMode: "contain" }}>
+            <View >
+                <View style={{height: 172,}}>
+
               <Image
                 source={{ uri: item.image }}
                 style={{
+                    height: '100%',
                   width: 450,
-                  height: 172,
                   margin: 10,
                   borderRadius: 5,
                 }}
               />
+                </View>
               <View>
                 <Text
                   style={{
@@ -188,5 +180,6 @@ const style = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     width: "100%",
+    overflow: 'hidden'
   },
 });
