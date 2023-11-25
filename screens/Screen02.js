@@ -29,10 +29,6 @@ const Screen02 = ({ route }) => {
   const filteredData =
     filter === "all" ? data : data.filter((item) => item.brand === filter);
   return (
-    //   <View>
-    //     <Text>Screen02</Text>
-    //     <Image source={{ uri: item.image }}></Image>
-    //   </View>
     <View style={styles.container}>
       <View style={{ height: 125 }}>
         <Image
@@ -59,6 +55,21 @@ const Screen02 = ({ route }) => {
       </View>
       <Pressable
         onPress={() => {
+          navigation.navigate("Screen05");
+        }}
+        style={{ left: 180 }}
+      >
+        <Image
+          source={require("../assets/Group 18 (1).png")}
+          style={{
+            height: 50,
+            bottom: 120,
+            resizeMode: "contain",
+          }}
+        ></Image>
+      </Pressable>
+      <Pressable
+        onPress={() => {
           navigation.navigate("Screen04");
         }}
         style={{ left: 180 }}
@@ -67,7 +78,7 @@ const Screen02 = ({ route }) => {
           source={require("../assets/Group_26.png")}
           style={{
             height: 50,
-            bottom: 66,
+            bottom: 115,
             resizeMode: "contain",
           }}
         ></Image>
@@ -111,7 +122,7 @@ const Screen02 = ({ route }) => {
           />
         </svg>
       </Pressable>
-      <View style={{ alignItems: "center", bottom: 50 }}>
+      <View style={{ alignItems: "center", bottom: 110 }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="410"
@@ -132,22 +143,32 @@ const Screen02 = ({ route }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           left: 10,
-          bottom: 50,
-          width: 410
+          bottom: 120,
+          width: 410,
         }}
       >
-        <Pressable onPress={() => handleFilterPress('All')}>
-          <Text style={filter === 'All' ? styles.activeFilter : styles.filter}>All</Text>
+        <Pressable onPress={() => handleFilterPress("All")}>
+          <Text style={filter === "All" ? styles.activeFilter : styles.filter}>
+            All
+          </Text>
         </Pressable>
-        <Pressable onPress={() => handleFilterPress('Nuxros')}>
-          <Text style={filter === 'Nuxros' ? styles.activeFilter : styles.filter}>Nuxros</Text>
+        <Pressable onPress={() => handleFilterPress("Nuxros")}>
+          <Text
+            style={filter === "Nuxros" ? styles.activeFilter : styles.filter}
+          >
+            Nuxros
+          </Text>
         </Pressable>
-        <Pressable onPress={() => handleFilterPress('SingaKBD')}>
-          <Text style={filter === 'SingaKBD' ? styles.activeFilter : styles.filter}>SingaKBD</Text>
+        <Pressable onPress={() => handleFilterPress("SingaKBD")}>
+          <Text
+            style={filter === "SingaKBD" ? styles.activeFilter : styles.filter}
+          >
+            SingaKBD
+          </Text>
         </Pressable>
       </View>
       <ScrollView
-        style={{ flexDirection: "column", display: "flex", bottom: 35 }}
+        style={{ flexDirection: "column", display: "flex", bottom: 110 }}
       >
         {data.map((item, index) => (
           <Pressable key={index} onPress={() => handleItemPress(item)}>
@@ -219,6 +240,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 120,
     fontSize: 25,
+    fontWeight:"normal",
   },
   activeFilter: {
     textAlign: "center",
@@ -227,5 +249,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: 120,
     fontSize: 25,
+    fontWeight:"normal",
   },
 });

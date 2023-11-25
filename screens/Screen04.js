@@ -98,15 +98,15 @@ const Screen04 = ({ route }) => {
           />
         </svg>
       </View>
-      <ScrollView>
-        <View style={{ flexDirection: "column", display: "flex", gap: 10 }}>
-          <Image
+      <Image
             source={require("../assets/shopping-cart 2.png")}
             style={{
               height: 50,
               resizeMode: "contain",
             }}
           ></Image>
+      <ScrollView>
+        <View style={{ flexDirection: "column", display: "flex", gap: 10 }}>
           {cartItems.map((item, index) => (
             <View
               key={index}
@@ -154,9 +154,9 @@ const Screen04 = ({ route }) => {
               <Text
                 style={{
                   color: "white",
-                  fontSize: 20,
+                  fontSize: 24,
                   left: 300,
-                  bottom: 140,
+                  bottom: 145,
                 }}
               >
                 {item.price}
