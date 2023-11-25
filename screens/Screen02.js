@@ -27,7 +27,7 @@ const Screen02 = ({ route }) => {
     //     <Image source={{ uri: item.image }}></Image>
     //   </View>
     <View style={style.container}>
-      <View style={{ height: 200 }}>
+      <View style={{ height: 125 }}>
         <Image
           source={require("../assets/Nuxros.png")}
           style={{
@@ -42,16 +42,31 @@ const Screen02 = ({ route }) => {
             position: "absolute",
             left: 120,
             flex: 1,
-            color:'white',
+            color: "white",
             fontSize: "32px",
-            top: 120,
+            top: 70,
           }}
         >
           _Keep for All
         </Text>
       </View>
       <Pressable
-        style={{ position: "absolute", bottom: 780, left: 20 }}
+        onPress={() => {
+          navigation.navigate("Screen04");
+        }}
+        style={{ left: 180 }}
+      >
+        <Image
+          source={require("../assets/Group_26.png")}
+          style={{
+            height: 50,
+            bottom: 66,
+            resizeMode: "contain",
+          }}
+        ></Image>
+      </Pressable>
+      <Pressable
+        style={{ position: "absolute", bottom: 820, left: 10 }}
         onPress={() => {
           navigation.navigate("Screen01");
         }}
@@ -89,7 +104,7 @@ const Screen02 = ({ route }) => {
           />
         </svg>
       </Pressable>
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "center", bottom: 50 }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="410"
@@ -109,6 +124,7 @@ const Screen02 = ({ route }) => {
           flexDirection: "row",
           justifyContent: "space-between",
           paddingHorizontal: 10,
+          bottom: 50,
         }}
       >
         <Pressable
@@ -162,7 +178,9 @@ const Screen02 = ({ route }) => {
           </Text>
         </Pressable>
       </View>
-      <ScrollView style={{ flexDirection: "column", display: "flex", gap: 10 }}>
+      <ScrollView
+        style={{ flexDirection: "column", display: "flex", bottom: 35 }}
+      >
         {data.map((item, index) => (
           <Pressable key={index} onPress={() => handleItemPress(item)}>
             <View>

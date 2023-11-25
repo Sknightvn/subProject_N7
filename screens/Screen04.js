@@ -21,7 +21,7 @@ const Screen04 = ({ route }) => {
     //     <Image source={{ uri: item.image }}></Image>
     //   </View>
     <View style={style.container}>
-      <View style={{ height: 200 }}>
+      <View style={{ height: 125 }}>
         <Image
           source={require("../assets/SingaKBD.png")}
           style={{
@@ -38,14 +38,14 @@ const Screen04 = ({ route }) => {
             flex: 1,
             color: "white",
             fontSize: "32px",
-            top: 120,
+            top: 70,
           }}
         >
           _Keep for All
         </Text>
       </View>
       <Pressable
-        style={{ position: "absolute", bottom: 780, left: 20 }}
+        style={{ position: "absolute", bottom: 820, left: 10 }}
         onPress={() => {
           navigation.navigate("Screen02");
         }}
@@ -98,14 +98,95 @@ const Screen04 = ({ route }) => {
           />
         </svg>
       </View>
-      <ScrollView style={{ flexDirection: "column", display: "flex", gap: 10 }}>
-        <View>
-          <Text>Cart Items:</Text>
+      <ScrollView>
+        <View style={{ flexDirection: "column", display: "flex", gap: 10 }}>
+          <Image
+            source={require("../assets/shopping-cart 2.png")}
+            style={{
+              height: 50,
+              resizeMode: "contain",
+            }}
+          ></Image>
           {cartItems.map((item, index) => (
-            <View key={index}>
-              <Text>{item.name}</Text>
-              <Pressable onPress={() => handleRemoveItem(item)}>
-                <Text style={{ color: "red" }}>Remove</Text>
+            <View
+              key={index}
+              style={{
+                backgroundColor: "#181818",
+                width: 410,
+                left: 10,
+                borderRadius: 5,
+                height: 100,
+                gap: 10,
+              }}
+            >
+              <View style={{ height: 100 }}>
+                <Image
+                  source={{ uri: item.image }}
+                  style={{
+                    height: 100,
+                    width: 100,
+                    borderRadius: 5,
+                  }}
+                />
+              </View>
+              <Text
+                style={{
+                  color: "#FFF0BA",
+                  fontSize: 32,
+                  fontWeight: "bold",
+                  left: 120,
+                  bottom: 110,
+                }}
+              >
+                {item.name}
+              </Text>
+              <Text
+                style={{
+                  color: "#7089FF",
+                  fontSize: 28,
+                  fontWeight: "normal",
+                  left: 120,
+                  bottom: 130,
+                }}
+              >
+                {item.brand}
+              </Text>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 20,
+                  left: 300,
+                  bottom: 140,
+                }}
+              >
+                {item.price}
+              </Text>
+              <Pressable
+                onPress={() => handleRemoveItem(item)}
+                style={{ bottom: 240, left: 380 }}
+              >
+                <Text style={{}}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="21"
+                    height="21"
+                    viewBox="0 0 21 21"
+                    fill="none"
+                  >
+                    <path
+                      d="M3.21402 3L18 18"
+                      stroke="white"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M3 18L17.786 3"
+                      stroke="white"
+                      stroke-width="5"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </Text>
               </Pressable>
             </View>
           ))}

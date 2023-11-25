@@ -12,19 +12,21 @@ const Screen03 = ({ route }) => {
   const { addToCart, cartItems } = useCart();
 
   const handleAddToCart = () => {
-    console.log('Adding to cart:', selectedItem);
+    console.log("Adding to cart:", selectedItem);
     addToCart(selectedItem);
     navigation.navigate("Screen04");
   };
 
   return (
     <View style={style.container}>
-      <Image
-        source={{ uri: selectedItem.image }}
-        style={{ position: "absolute", width: "100%", height: 400 }}
-      />
+      <View>
+        <Image
+          source={{ uri: selectedItem.image }}
+          style={{width: "100%", height: 400 }}
+        />
+      </View>
       <Pressable
-        style={{ position: "absolute", bottom: 1020, left: 20 }}
+        style={{ position: "absolute", bottom: 820, left: 10 }}
         onPress={() => {
           navigation.navigate("Screen02");
         }}
@@ -69,7 +71,7 @@ const Screen03 = ({ route }) => {
             fontSize: 40,
             fontWeight: "bold",
             left: 10,
-            top: 410,
+            top: 10,
           }}
         >
           {selectedItem.name}
@@ -78,11 +80,11 @@ const Screen03 = ({ route }) => {
       <View>
         <Text
           style={{
-            color: "#000000",
+            color: "rgba(0, 0, 0, 0.50)",
             fontSize: 30,
             fontWeight: "bold",
             left: 10,
-            top: 410,
+            top: 20,
           }}
         >
           {selectedItem.brand}
@@ -93,14 +95,14 @@ const Screen03 = ({ route }) => {
           style={{
             color: "#181818",
             fontSize: 32,
-            left: 285,
-            top: 325,
+            left: 270,
+            bottom: 75,
           }}
         >
           {selectedItem.price}
         </Text>
       </View>
-      <View style={{ alignItems: "center", top: 350 }}>
+      <View style={{ alignItems: "center", bottom: 30 }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="410"
@@ -115,7 +117,7 @@ const Screen03 = ({ route }) => {
           />
         </svg>
       </View>
-      <View style={{ left: 10, top: 380 }}>
+      <View style={{ left: 10, top: 10 }}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="27"
@@ -136,7 +138,7 @@ const Screen03 = ({ route }) => {
             fontSize: 24,
             width: 215,
             left: 60,
-            top: 250,
+            bottom: 120,
           }}
         >
           {selectedItem.spec}
@@ -147,7 +149,7 @@ const Screen03 = ({ route }) => {
           position: "absolute",
           justifyContent: "center",
           alignItems: "center",
-          width: 180,
+          width: 190,
           height: 80,
           top: 800,
           left: 10,
@@ -168,10 +170,10 @@ const Screen03 = ({ route }) => {
           position: "absolute",
           justifyContent: "center",
           alignItems: "center",
-          width: 180,
+          width: 190,
           height: 80,
           top: 800,
-          left: 235,
+          left: 225,
           backgroundColor: "#FFF0BA",
           borderRadius: 5,
           fontWeight: "bold",
