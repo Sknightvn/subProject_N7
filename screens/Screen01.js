@@ -46,7 +46,11 @@ const Screen01 = ({ route }) => {
           source={require("../assets/Group 16.png")}
           style={{ height: 130, top: 170, resizeMode: "contain" }}
         ></Image>
-         <Text style={styles.copyright}>2022 - 2023<br/>DK copy-right</Text>
+        <Text style={styles.copyright}>
+          2022 - 2023
+          <br />
+          DK copy-right
+        </Text>
       </View>
     </View>
   );
