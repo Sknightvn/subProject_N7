@@ -181,7 +181,7 @@ const Screen03 = ({ route }) => {
         onPress={handleAddToCart}
       >
         <Text style={{ fontSize: 36, color: "#7089FF", fontWeight: "bold" }}>
-          Add
+          Purchase
         </Text>
       </Pressable>
     </View>

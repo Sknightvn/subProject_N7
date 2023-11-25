@@ -192,6 +192,24 @@ const Screen04 = ({ route }) => {
           ))}
         </View>
       </ScrollView>
+      <Pressable
+        style={{
+          position: "absolute",
+          justifyContent: "center",
+          alignItems: "center",
+          width: 410,
+          height: 80,
+          bottom: 20,
+          left: 10,
+          backgroundColor: "#F5D0FF",
+          borderRadius: 5,
+          fontWeight: "bold",
+        }}
+      >
+        <Text style={{ fontSize: 36, color: "#7089FF", fontWeight: "bold" }}>
+          Checkout
+        </Text>
+      </Pressable>
     </View>
   );
 };

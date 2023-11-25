@@ -8,6 +8,7 @@ const Screen02 = ({ route }) => {
   const navigation = useNavigation();
   const dataParam = route.params;
   const [data, setData] = useState([]);
+  const [filter, setFilter] = useState("all");
   useEffect(() => {
     fetch("https://65419dfcf0b8287df1fe8be4.mockapi.io/keyboard")
       .then((response) => response.json())
@@ -21,12 +22,18 @@ const Screen02 = ({ route }) => {
     navigation.navigate("Screen03", { selectedItem: item });
   };
 
+  const handleFilterPress = (brand) => {
+    setFilter(brand);
+  };
+
+  const filteredData =
+    filter === "all" ? data : data.filter((item) => item.brand === filter);
   return (
     //   <View>
     //     <Text>Screen02</Text>
     //     <Image source={{ uri: item.image }}></Image>
     //   </View>
-    <View style={style.container}>
+    <View style={styles.container}>
       <View style={{ height: 125 }}>
         <Image
           source={require("../assets/Nuxros.png")}
@@ -119,63 +126,24 @@ const Screen02 = ({ route }) => {
           />
         </svg>
       </View>
+
       <View
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
-          paddingHorizontal: 10,
+          left: 10,
           bottom: 50,
+          width: 410
         }}
       >
-        <Pressable
-        // onPress={() => {
-        //   navigation.navigate("Screen01");
-        // }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              color: "#7089FF",
-              backgroundColor: "lightpink",
-              borderRadius: 5,
-              width: 100,
-              fontSize: 25,
-            }}
-          >
-            All
-          </Text>
+        <Pressable onPress={() => handleFilterPress('All')}>
+          <Text style={filter === 'All' ? styles.activeFilter : styles.filter}>All</Text>
         </Pressable>
-        <Pressable
-        // onPress={() => {
-        //   navigation.navigate("Screen01");
-        // }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              color: "#7089FF",
-              borderRadius: 5,
-              fontSize: 25,
-            }}
-          >
-            Nuxros
-          </Text>
+        <Pressable onPress={() => handleFilterPress('Nuxros')}>
+          <Text style={filter === 'Nuxros' ? styles.activeFilter : styles.filter}>Nuxros</Text>
         </Pressable>
-        <Pressable
-        // onPress={() => {
-        //   navigation.navigate("Screen01");
-        // }}
-        >
-          <Text
-            style={{
-              textAlign: "center",
-              color: "#7089FF",
-              borderRadius: 5,
-              fontSize: 25,
-            }}
-          >
-            SingaKBD
-          </Text>
+        <Pressable onPress={() => handleFilterPress('SingaKBD')}>
+          <Text style={filter === 'SingaKBD' ? styles.activeFilter : styles.filter}>SingaKBD</Text>
         </Pressable>
       </View>
       <ScrollView
@@ -238,11 +206,26 @@ const Screen02 = ({ route }) => {
 };
 export default Screen02;
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
     width: "100%",
     overflow: "hidden",
+  },
+  filter: {
+    textAlign: "center",
+    color: "#7089FF",
+    borderRadius: 5,
+    width: 120,
+    fontSize: 25,
+  },
+  activeFilter: {
+    textAlign: "center",
+    color: "white",
+    backgroundColor: "#F5D0FF",
+    borderRadius: 5,
+    width: 120,
+    fontSize: 25,
   },
 });
