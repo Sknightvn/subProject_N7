@@ -211,7 +211,7 @@ const Screen02 = ({ route }) => {
                     textAlign: "right",
                     color: "white",
                     fontSize: 30,
-                    right: 30,
+                    right: 25,
                     bottom: 130,
                   }}
                 >

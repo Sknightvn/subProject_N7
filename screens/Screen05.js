@@ -9,10 +9,6 @@ const Screen05 = ({ route }) => {
   const dataParam = route.params;
   const [data, setData] = useState([]);
 
-  const handleItemPress = (item) => {
-    navigation.navigate("Screen02", { selectedItem: item });
-  };
-
   return (
     <View style={styles.container}>
       <View style={{ height: 125 }}>
